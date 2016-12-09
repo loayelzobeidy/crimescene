@@ -1,0 +1,2 @@
+g++ -o crime  crime.cpp -lglut -lGLU -lGL -lm -std=c++1y -std=c++0x -pthread
+./crime
