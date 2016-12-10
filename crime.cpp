@@ -102,11 +102,13 @@ void drawRoom(){
 	glPushMatrix();
 	glColor3d(0,0,0);
 	
-	glBegin(GL_QUADS);
+	glBegin(GL_POLYGON);
+	glVertex3d(-250,-250,250);
 	glVertex3d(-250,250,250);
 	glVertex3d(250,250,250);
-	glVertex3d(250,-250,250);
-	glVertex3d(-250,-250,250);
+	glVertex3d(250,0,250);
+	glVertex3d(100,0,250);
+	glVertex3d(100,-250,250);
 	glEnd();
     glPopMatrix();
 
@@ -156,7 +158,15 @@ void drawRoom(){
 
 
 
+bool detect(){
+	switch(movez){
+	case 495:
+	case -495:return true ;
+		}
+		return false ; 
 
+
+}
  void Anim(){
  	
  	}
@@ -184,10 +194,10 @@ void Passivemouse(int x , int y ){
 void changeMotion(int key ,int x, int y ){
 
 switch(key){
-case GLUT_KEY_LEFT :movex+=1;break ;
-case GLUT_KEY_RIGHT : movex-=1;break ;
-case GLUT_KEY_UP  :movez+=1;break;
-case GLUT_KEY_DOWN :movez-=1;break ;
+case GLUT_KEY_LEFT :if(!(movex>=245&&movex<=250))movex+=1;break ;
+case GLUT_KEY_RIGHT :if(!(movex<=-245&&movex>=-250)) movex-=1;break ;
+case GLUT_KEY_UP  :if(!(movez>=245&&movez<=250))movez+=1;break;
+case GLUT_KEY_DOWN :if(!(movex<=-245&&movex>=-250))movez-=1;break ;
 
 }
 std::cout<<movex<<" "<<movez;
